@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 public class WelcomePage extends Base{
     By formAuthLink = By.linkText("Form Authentication");
     By basicAuthLink = By.linkText("Basic Auth");
+    By brokenImgsLink = By.linkText("Broken Images");
     By dropdownLink = By.linkText("Dropdown");
     By inputsLink = By.linkText("Inputs");
 
@@ -16,6 +17,9 @@ public class WelcomePage extends Base{
     }
     public void clickBasicAthLink(WebDriver driver){
         click(basicAuthLink,driver);
+    }
+    public void clickBrokenImgsLink(WebDriver driver){
+        click(brokenImgsLink,driver);
     }
     public void clickDropdownLink(WebDriver driver){
         click(dropdownLink,driver);

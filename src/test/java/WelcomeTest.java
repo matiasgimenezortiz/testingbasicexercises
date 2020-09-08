@@ -1,8 +1,6 @@
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -59,12 +57,27 @@ public class WelcomeTest extends BaseTest{
     }
 
     @Test
-    //no anda
-    public void basicAuthLink(){
+    public void basicAuthLink() throws InterruptedException {
         welcomePage.clickBasicAthLink(driver);
-        espera.until(ExpectedConditions.urlToBe("https://the-internet.herokuapp.com/basic_auth"));
-        Alert popup = driver.switchTo().alert();
-        popup.sendKeys("admin");
+        welcomePage.visit("http://admin:admin@the-internet.herokuapp.com/basic_auth",driver);
+        Thread.sleep(5000);
+    }
+
+    @Test
+    public void brokenImgsLink(){
+        welcomePage.clickBrokenImgsLink(driver);
+        WebElement title = driver.findElement(By.cssSelector("div .example > h3"));
+        String textTitle = title.getText();
+        Assert.assertEquals(textTitle,"Broken Images");
+    }
+
+    @Test
+    //Testing a dropdown list
+    public void dropdownListLink(){
+        welcomePage.clickDropdownLink(driver);
+        espera.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#content > div > h3")));
+        Select dropdown = new Select(driver.findElement(By.cssSelector("select#dropdown")));
+        dropdown.selectByIndex(2);
     }
 
     @AfterSuite
