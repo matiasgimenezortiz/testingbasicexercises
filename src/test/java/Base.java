@@ -1,5 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class Base{
     public Base(){
@@ -11,6 +12,9 @@ public class Base{
     }
     public void click(By locator, WebDriver driver){
         driver.findElement(locator).click();
+    }
+    public void click(WebElement element, WebDriver driver){
+        element.click();
     }
     public boolean isDisplayed(By locator, WebDriver driver){
         return driver.findElement(locator).isDisplayed();
