@@ -20,14 +20,14 @@ public class MultipleWindowsTest extends  BaseTest{
 
     @BeforeSuite
     public void setUp(){
-        multipleWindowsPage = new MultipleWindowsPage();
+        multipleWindowsPage = new MultipleWindowsPage(driver);
         driver = chromeDriverConnection();
         espera = new WebDriverWait(driver,10);
     }
 
     @BeforeMethod
     public void setInitialPage(){
-        multipleWindowsPage.visit("https://the-internet.herokuapp.com/windows",driver);
+        multipleWindowsPage.visit("https://the-internet.herokuapp.com/windows");
         espera.until(ExpectedConditions.presenceOfElementLocated(multipleWindowsPage.titlePageLocator));
     }
 

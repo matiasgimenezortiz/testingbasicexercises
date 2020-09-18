@@ -5,11 +5,11 @@ public class MultipleWindowsPage extends Base{
     By newWindowLinkLocator = By.linkText("Click Here");
     By titlePageLocator = By.cssSelector("h3 ");
 
-    public MultipleWindowsPage(){
-        super();
+    public MultipleWindowsPage(WebDriver driver){
+        super(driver);
     }
 
     public void clickNewWindowLink(WebDriver driver){
-        click(newWindowLinkLocator,driver);
+        click(newWindowLinkLocator);
     }
 }

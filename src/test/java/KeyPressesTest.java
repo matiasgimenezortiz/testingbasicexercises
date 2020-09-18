@@ -25,12 +25,12 @@ public class KeyPressesTest extends BaseTest{
     public void setUp(){
         driver = chromeDriverConnection();
         espera = new WebDriverWait(driver,10);
-        keyPressesPage = new KeyPressesPage();
+        keyPressesPage = new KeyPressesPage(driver);
     }
 
     @BeforeMethod
     public void setInitialPage(){
-        keyPressesPage.visit("https://the-internet.herokuapp.com/key_presses",driver);
+        keyPressesPage.visit("https://the-internet.herokuapp.com/key_presses");
         driver.manage().window().maximize();
         espera.until(ExpectedConditions.presenceOfElementLocated(keyPressesPage.titlePageLocator));
     }

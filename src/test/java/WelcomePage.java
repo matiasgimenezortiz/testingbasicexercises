@@ -1,31 +1,41 @@
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class WelcomePage extends Base{
-    By formAuthLink = By.linkText("Form Authentication");
-    By basicAuthLink = By.linkText("Basic Auth");
-    By brokenImgsLink = By.linkText("Broken Images");
-    By dropdownLink = By.linkText("Dropdown");
-    By inputsLink = By.linkText("Inputs");
 
-    public WelcomePage(){
-        super();
-    }
+    @FindBy(linkText = "Form Authentication")
+    WebElement formAuthLink;
 
-    public void clickFormAuthLink(WebDriver driver){
-        click(formAuthLink, driver);
+    @FindBy(linkText = "Basic Auth")
+    WebElement basicAuthLink;
+
+    @FindBy(linkText = "Broken Images")
+    WebElement brokenImgsLink;
+
+    @FindBy(linkText = "Dropdown")
+    WebElement dropdownLink;
+
+    @FindBy(linkText = "Inputs")
+    WebElement inputsLink;
+
+    public WelcomePage(WebDriver driver){
+        super(driver);
     }
-    public void clickBasicAthLink(WebDriver driver){
-        click(basicAuthLink,driver);
+    public void clickFormAuthLink(){
+        click(formAuthLink);
     }
-    public void clickBrokenImgsLink(WebDriver driver){
-        click(brokenImgsLink,driver);
+    public void clickBasicAthLink(){
+        click(basicAuthLink);
     }
-    public void clickDropdownLink(WebDriver driver){
-        click(dropdownLink,driver);
+    public void clickBrokenImgsLink(){
+        click(brokenImgsLink);
     }
-    public void clickInputsLink(WebDriver driver){
-        click(inputsLink,driver);
+    public void clickDropdownLink(){
+        click(dropdownLink);
+    }
+    public void clickInputsLink(){
+        click(inputsLink);
     }
 
 }

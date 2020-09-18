@@ -17,12 +17,12 @@ public class BrokenImagesTest extends BaseTest{
     public void setUp(){
         driver = chromeDriverConnection();
         espera = new WebDriverWait(driver,10);
-        brokenImagesPage = new BrokenImagesPage();
+        brokenImagesPage = new BrokenImagesPage(driver);
     }
 
     @BeforeTest
     public void setInitialPage(){
-        brokenImagesPage.visit("https://the-internet.herokuapp.com/broken_images",driver);
+        brokenImagesPage.visit("https://the-internet.herokuapp.com/broken_images");
         driver.manage().window().maximize();
     }
 

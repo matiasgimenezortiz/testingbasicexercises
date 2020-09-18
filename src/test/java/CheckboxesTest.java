@@ -23,13 +23,13 @@ public class CheckboxesTest extends BaseTest{
     public void setUp(){
         driver = chromeDriverConnection();
         espera = new WebDriverWait(driver,10);
-        checkboxesPage = new CheckboxesPage();
+        checkboxesPage = new CheckboxesPage(driver);
 
     }
 
     @BeforeMethod
     public void setInitialPage(){
-        checkboxesPage.visit("https://the-internet.herokuapp.com/checkboxes",driver);
+        checkboxesPage.visit("https://the-internet.herokuapp.com/checkboxes");
         driver.manage().window().maximize();
     }
 
